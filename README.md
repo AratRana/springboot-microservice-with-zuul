@@ -12,8 +12,11 @@ spring:
 open: c:\Windows\System32\drivers\etc\hosts  in admin mode and add the           
 
 127.0.0.1	configserver
+
 127.0.0.1	discovery
+
 127.0.0.1	dbhost
+
 127.0.0.1	apihost
 
 If all all are in local or change the ip accordingly
