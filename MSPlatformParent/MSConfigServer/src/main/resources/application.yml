@@ -1,0 +1,2 @@
+server:  port: 8090
+spring:  profiles:    include:    - native    active:    - native  cloud:    config:      server:        native:          search-locations:             - file:///C:/innovation/cloud_ms/config-repo      enabled: true          eureka:  instance:    hostname: configserver    prefer-ip-address: true    #metadata-map:      #- zone:         client:    register-with-eureka: true    fetch-registry: true    service-url:      defaultZone: http://discovery:8761/eureka                

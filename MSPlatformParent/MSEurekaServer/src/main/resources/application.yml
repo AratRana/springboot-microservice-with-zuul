@@ -1,0 +1,25 @@
+server:
+  port: 8761
+  
+eureka:  instance:    hostname: discovery    #lease-renewal-interval-in-seconds: 10
+    #lease-expiration-duration-in-seconds: 20
+  server:    #enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000  
+    response-cache-update-interval-ms: 15000
+  client:    register-with-eureka: false
+    fetch-registry: false
+    #service-url:      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  dashboard:    path: /discovery
+      
+spring:  cloud:    config:      discovery:        enabled: true   
+        
+logging:
+  level:
+    com:
+      netflix:
+        eureka: false
+        com:
+          netflix:
+            discovery: false     
+            
+            
+            

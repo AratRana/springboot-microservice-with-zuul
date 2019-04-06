@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: enterpriseservice
+  cloud:    config:      uri:      - http://configserver:8090
+      fail-fast: true
+      retry:        initial-interval: 1500
+        max-attempts: 5
+        multiplier: 1.5  

@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  platform-config-server:
+    container_name: platform-config-server
+    image: platform-config-server
+    ports:
+      - 8090:8090
+    links:
+      - platform-eureka-server  
+
+  platform-eureka-server:
+    container_name: platform-eureka-server
+    image: platform-eureka-server
+    ports:
+      - 8761:8761
+
+  platform-hystrix:
+    container_name: platform-hystrix
+    image: platform-hystrix
+    ports:
+      - 8084:8084
+    links:
+      - platform-core
+      - platform-eureka-server
+      - platform-config-server  
+
+  platform-zuul-ui:
+    container_name: platform-zuul-ui
+    image: platform-zuul-ui
+    ports:
+      - 8087:8087
+    links:  
+      - platform-eureka-server
+      - platform-config-server
+      - platform-core
+      - platform-ui
+      - platform-hystrix
+      
+
+  platform-core:
+    container_name: platform-core
+    image: platform-core
+    ports:
+      - 8093:8093
+    links:
+      - platform-config-server
+      - platform-eureka-server  
+
+  platform-ui:
+    container_name: platform-ui
+    image: platform-ui
+    ports:
+      - 8098:8098
+    links:
+      - platform-hystrix
+      - platform-config-server
+      - platform-eureka-server

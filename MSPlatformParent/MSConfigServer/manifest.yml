@@ -1,0 +1,7 @@
+---
+applications:
+- name: platform-config-server
+  host: platform-config-server-${random-word}
+  memory: 512M
+  instances: 1
+  path: target/platform-config-server.jar
